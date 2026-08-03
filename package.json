@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:pages": "GITHUB_PAGES=1 tsc -b && GITHUB_PAGES=1 vite build",
+    "deploy:pages": "npm run build:pages && npx --yes gh-pages@6 -d dist -m \"Deploy Laszlo Launchpad\"",
     "lint": "oxlint",
     "preview": "vite preview"
   },
