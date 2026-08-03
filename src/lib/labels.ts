@@ -31,6 +31,23 @@ export const JOB_STATUS_LABELS = {
   closed: 'Closed',
 } as const
 
+export const APPLICATION_STATUS_LABELS = {
+  applied: 'Applied',
+  interviewing: 'Interviewing',
+  denied: 'Denied',
+  ghosted: 'Ghosted',
+  accepted: 'Accepted',
+  withdrawn: 'Withdrawn',
+} as const
+
+export const APPLICATION_PIPELINE_ORDER = [
+  'applied',
+  'interviewing',
+  'denied',
+  'ghosted',
+  'accepted',
+] as const
+
 export const LOCATIONS = ['SF Bay', 'San Diego', 'Los Angeles', 'Remote CA', 'Other CA'] as const
 
 export function daysUntil(iso: string) {
@@ -56,4 +73,9 @@ export function relativeChecked(iso: string | null) {
   if (days === 0) return 'Checked today'
   if (days === 1) return 'Checked yesterday'
   return `Checked ${days}d ago`
+}
+
+export function pct(part: number, whole: number) {
+  if (whole <= 0) return 0
+  return Math.round((part / whole) * 100)
 }

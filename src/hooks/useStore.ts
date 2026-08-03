@@ -5,6 +5,8 @@ import { toAppJob, type DiscoveredJobsFile } from '../data/discovered'
 import { seedState } from '../data/seed'
 import type {
   AppState,
+  Application,
+  ApplicationStatus,
   Company,
   CompanyStage,
   Job,
@@ -13,7 +15,7 @@ import type {
   Profile,
 } from '../types'
 
-const STORAGE_KEY = 'laszlo-launchpad-v3'
+const STORAGE_KEY = 'laszlo-launchpad-v4'
 
 interface AtlasMetaFile {
   lastAtlasUpdateAt: string | null
@@ -69,7 +71,24 @@ function loadAtlasMeta(): AtlasMetaFile {
   return atlasMetaFile as AtlasMetaFile
 }
 
-function loadState(): AppState {
+function loadPublicState(): AppState {
+  const discovered = loadDiscoveredJobs()
+  const base = structuredClone(seedState)
+  return {
+    ...base,
+    // Public profile — no personal edits
+    profile: {
+      ...base.profile,
+      name: 'Laszlo',
+    },
+    companies: mergeCompanies(undefined),
+    jobs: mergeJobs([], discovered.jobs),
+    applications: [],
+  }
+}
+
+function loadState(readOnly: boolean): AppState {
+  if (readOnly) return loadPublicState()
   const discovered = loadDiscoveredJobs()
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
@@ -79,6 +98,7 @@ function loadState(): AppState {
         ...base,
         companies: mergeCompanies(undefined),
         jobs: mergeJobs([], discovered.jobs),
+        applications: [],
       }
     }
     const parsed = JSON.parse(raw) as AppState
@@ -89,12 +109,14 @@ function loadState(): AppState {
       companies: mergeCompanies(parsed.companies),
       milestones: parsed.milestones?.length ? parsed.milestones : seedState.milestones,
       jobs: mergeJobs(parsed.jobs, discovered.jobs),
+      applications: parsed.applications ?? [],
     }
   } catch {
     const base = structuredClone(seedState)
     return {
       ...base,
       jobs: mergeJobs([], discovered.jobs),
+      applications: [],
     }
   }
 }
@@ -103,23 +125,32 @@ function uid(prefix: string) {
   return `${prefix}-${crypto.randomUUID().slice(0, 8)}`
 }
 
-export function useStore() {
+export function useStore(readOnly = false) {
   const discoveredMeta = useMemo(() => loadDiscoveredJobs(), [])
   const atlasMeta = useMemo(() => loadAtlasMeta(), [])
-  const [state, setState] = useState<AppState>(loadState)
+  const [state, setState] = useState<AppState>(() => loadState(readOnly))
   const [lastScanAt] = useState<string | null>(discoveredMeta.lastScanAt)
   const [lastAtlasUpdateAt] = useState<string | null>(atlasMeta.lastAtlasUpdateAt)
   const [atlasUpdateNotes] = useState(atlasMeta.updateNotes)
 
   useEffect(() => {
+    if (readOnly) return
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-  }, [state])
+  }, [state, readOnly])
 
   const updateProfile = useCallback((patch: Partial<Profile>) => {
+    if (readOnly) return
     setState((s) => ({ ...s, profile: { ...s.profile, ...patch } }))
-  }, [])
+  }, [readOnly])
 
   const addCompany = useCallback((company: Omit<Company, 'id' | 'createdAt'>) => {
+    if (readOnly) {
+      return {
+        ...company,
+        id: 'readonly',
+        createdAt: new Date().toISOString(),
+      } as Company
+    }
     const next: Company = {
       ...company,
       id: uid('c'),
@@ -127,14 +158,15 @@ export function useStore() {
     }
     setState((s) => ({ ...s, companies: [next, ...s.companies] }))
     return next
-  }, [])
+  }, [readOnly])
 
   const updateCompany = useCallback((id: string, patch: Partial<Company>) => {
+    if (readOnly) return
     setState((s) => ({
       ...s,
       companies: s.companies.map((c) => (c.id === id ? { ...c, ...patch } : c)),
     }))
-  }, [])
+  }, [readOnly])
 
   const setCompanyStage = useCallback(
     (id: string, stage: CompanyStage) => {
@@ -151,28 +183,32 @@ export function useStore() {
   )
 
   const deleteCompany = useCallback((id: string) => {
+    if (readOnly) return
     setState((s) => ({
       ...s,
       companies: s.companies.filter((c) => c.id !== id),
       jobs: s.jobs.filter((j) => j.companyId !== id),
+      applications: s.applications.filter((a) => a.companyId !== id),
     }))
-  }, [])
+  }, [readOnly])
 
   const addJob = useCallback((job: Omit<Job, 'id' | 'foundAt'>) => {
+    if (readOnly) return
     const next: Job = {
       ...job,
       id: uid('j'),
       foundAt: new Date().toISOString(),
     }
     setState((s) => ({ ...s, jobs: [next, ...s.jobs] }))
-  }, [])
+  }, [readOnly])
 
   const updateJob = useCallback((id: string, patch: Partial<Job>) => {
+    if (readOnly) return
     setState((s) => ({
       ...s,
       jobs: s.jobs.map((j) => (j.id === id ? { ...j, ...patch } : j)),
     }))
-  }, [])
+  }, [readOnly])
 
   const setJobStatus = useCallback(
     (id: string, status: JobStatus) => {
@@ -182,38 +218,92 @@ export function useStore() {
   )
 
   const deleteJob = useCallback((id: string) => {
+    if (readOnly) return
     setState((s) => ({ ...s, jobs: s.jobs.filter((j) => j.id !== id) }))
-  }, [])
+  }, [readOnly])
+
+  const addApplication = useCallback(
+    (app: Omit<Application, 'id' | 'updatedAt'>) => {
+      if (readOnly) {
+        return {
+          ...app,
+          id: 'readonly',
+          updatedAt: new Date().toISOString(),
+        } as Application
+      }
+      const now = new Date().toISOString()
+      const next: Application = {
+        ...app,
+        id: uid('a'),
+        updatedAt: now,
+      }
+      setState((s) => ({ ...s, applications: [next, ...s.applications] }))
+      return next
+    },
+    [readOnly],
+  )
+
+  const updateApplication = useCallback((id: string, patch: Partial<Application>) => {
+    if (readOnly) return
+    setState((s) => ({
+      ...s,
+      applications: s.applications.map((a) =>
+        a.id === id
+          ? { ...a, ...patch, updatedAt: new Date().toISOString() }
+          : a,
+      ),
+    }))
+  }, [readOnly])
+
+  const setApplicationStatus = useCallback(
+    (id: string, status: ApplicationStatus) => {
+      updateApplication(id, { status })
+    },
+    [updateApplication],
+  )
+
+  const deleteApplication = useCallback((id: string) => {
+    if (readOnly) return
+    setState((s) => ({
+      ...s,
+      applications: s.applications.filter((a) => a.id !== id),
+    }))
+  }, [readOnly])
 
   const toggleMilestone = useCallback((id: string) => {
+    if (readOnly) return
     setState((s) => ({
       ...s,
       milestones: s.milestones.map((m) =>
         m.id === id ? { ...m, done: !m.done } : m,
       ),
     }))
-  }, [])
+  }, [readOnly])
 
   const updateMilestone = useCallback((id: string, patch: Partial<Milestone>) => {
+    if (readOnly) return
     setState((s) => ({
       ...s,
       milestones: s.milestones.map((m) => (m.id === id ? { ...m, ...patch } : m)),
     }))
-  }, [])
+  }, [readOnly])
 
   const resetToSeed = useCallback(() => {
+    if (readOnly) return
     if (confirm('Reset all data to the starter company list? This cannot be undone.')) {
       const discovered = loadDiscoveredJobs()
       const fresh = {
         ...structuredClone(seedState),
         jobs: mergeJobs([], discovered.jobs),
+        applications: [],
       }
       setState(fresh)
       localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh))
     }
-  }, [])
+  }, [readOnly])
 
   const exportJson = useCallback(() => {
+    if (readOnly) return
     const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -221,10 +311,11 @@ export function useStore() {
     a.download = `laszlo-launchpad-${new Date().toISOString().slice(0, 10)}.json`
     a.click()
     URL.revokeObjectURL(url)
-  }, [state])
+  }, [state, readOnly])
 
   return {
     state,
+    readOnly,
     lastScanAt,
     lastAtlasUpdateAt,
     atlasUpdateNotes,
@@ -238,6 +329,10 @@ export function useStore() {
     updateJob,
     setJobStatus,
     deleteJob,
+    addApplication,
+    updateApplication,
+    setApplicationStatus,
+    deleteApplication,
     toggleMilestone,
     updateMilestone,
     resetToSeed,

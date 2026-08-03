@@ -16,6 +16,7 @@ function isScanJob(job: Job) {
 }
 
 export function Jobs({ store }: { store: Store }) {
+  const readOnly = store.readOnly
   const [showForm, setShowForm] = useState(false)
   const [status, setStatus] = useState<string>('all')
   const [role, setRole] = useState<string>('all')
@@ -76,10 +77,16 @@ export function Jobs({ store }: { store: Store }) {
           <div className="stat">
             <label>Quick add</label>
             <strong style={{ fontSize: '1.05rem' }}>Spot something?</strong>
-            <p style={{ marginBottom: 12 }}>Log it so it stays in your pipeline.</p>
-            <button className="btn btn-primary" onClick={() => setShowForm(true)}>
-              Log opening
-            </button>
+            <p style={{ marginBottom: 12 }}>
+              {readOnly
+                ? 'Browse matched roles below.'
+                : 'Log it so it stays in your pipeline.'}
+            </p>
+            {!readOnly && (
+              <button className="btn btn-primary" onClick={() => setShowForm(true)}>
+                Log opening
+              </button>
+            )}
           </div>
         </div>
       </section>
@@ -88,11 +95,17 @@ export function Jobs({ store }: { store: Store }) {
         <div className="panel-head">
           <div>
             <h3>All openings</h3>
-            <p>Filter by status, role type, or scan vs manual</p>
+            <p>
+              {readOnly
+                ? 'Matched UXR / HF / product roles'
+                : 'Filter by status, role type, or scan vs manual'}
+            </p>
           </div>
-          <button className="btn btn-primary" onClick={() => setShowForm(true)}>
-            Log opening
-          </button>
+          {!readOnly && (
+            <button className="btn btn-primary" onClick={() => setShowForm(true)}>
+              Log opening
+            </button>
+          )}
         </div>
 
         <div className="filters">
@@ -154,24 +167,28 @@ export function Jobs({ store }: { store: Store }) {
                       <span className="chip muted">Found {formatDate(j.foundAt)}</span>
                     </div>
                     <div className="inline-actions" style={{ marginTop: 10 }}>
-                      <select
-                        value={j.status}
-                        onChange={(e) =>
-                          store.setJobStatus(j.id, e.target.value as JobStatus)
-                        }
-                      >
-                        {STATUSES.map((s) => (
-                          <option key={s} value={s}>
-                            {JOB_STATUS_LABELS[s]}
-                          </option>
-                        ))}
-                      </select>
+                      {!readOnly && (
+                        <select
+                          value={j.status}
+                          onChange={(e) =>
+                            store.setJobStatus(j.id, e.target.value as JobStatus)
+                          }
+                        >
+                          {STATUSES.map((s) => (
+                            <option key={s} value={s}>
+                              {JOB_STATUS_LABELS[s]}
+                            </option>
+                          ))}
+                        </select>
+                      )}
                       {j.url && (
                         <a href={j.url} target="_blank" rel="noreferrer">
                           Open posting
                         </a>
                       )}
-                      <button onClick={() => store.deleteJob(j.id)}>Remove</button>
+                      {!readOnly && (
+                        <button onClick={() => store.deleteJob(j.id)}>Remove</button>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -181,7 +198,7 @@ export function Jobs({ store }: { store: Store }) {
         )}
       </section>
 
-      {showForm && (
+      {!readOnly && showForm && (
         <JobForm
           store={store}
           onClose={() => setShowForm(false)}

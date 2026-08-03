@@ -49,4 +49,5 @@ export const seedState: AppState = {
   ],
   companies: seedCompanies,
   jobs: [],
+  applications: [],
 }

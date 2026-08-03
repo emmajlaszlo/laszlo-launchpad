@@ -150,15 +150,22 @@ export function Dashboard({
             {milestones.map((m) => (
               <div className={`milestone ${m.done ? 'done' : ''}`} key={m.id}>
                 <h4>
-                  <button
-                    className="btn-ghost"
-                    style={{ padding: 0, border: 0, font: 'inherit', fontWeight: 650 }}
-                    onClick={() => store.toggleMilestone(m.id)}
-                    title="Toggle done"
-                  >
-                    {m.done ? '✓ ' : ''}
-                    {m.title}
-                  </button>
+                  {store.readOnly ? (
+                    <>
+                      {m.done ? '✓ ' : ''}
+                      {m.title}
+                    </>
+                  ) : (
+                    <button
+                      className="btn-ghost"
+                      style={{ padding: 0, border: 0, font: 'inherit', fontWeight: 650 }}
+                      onClick={() => store.toggleMilestone(m.id)}
+                      title="Toggle done"
+                    >
+                      {m.done ? '✓ ' : ''}
+                      {m.title}
+                    </button>
+                  )}
                 </h4>
                 <p>{m.description}</p>
                 <div className="when">{formatDate(m.targetDate)}</div>

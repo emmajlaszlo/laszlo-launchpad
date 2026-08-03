@@ -13,6 +13,7 @@ const STAGES = Object.keys(STAGE_LABELS) as CompanyStage[]
 const SIZES = Object.keys(SIZE_LABELS) as CompanySize[]
 
 export function Companies({ store }: { store: Store }) {
+  const readOnly = store.readOnly
   const [q, setQ] = useState('')
   const [loc, setLoc] = useState<string>('all')
   const [size, setSize] = useState<string>('all')
@@ -45,9 +46,11 @@ export function Companies({ store }: { store: Store }) {
                 : ''}
             </p>
           </div>
-          <button className="btn btn-primary" onClick={() => setShowForm(true)}>
-            Add company
-          </button>
+          {!readOnly && (
+            <button className="btn btn-primary" onClick={() => setShowForm(true)}>
+              Add company
+            </button>
+          )}
         </div>
 
         {store.atlasUpdateNotes && (
@@ -85,13 +88,13 @@ export function Companies({ store }: { store: Store }) {
 
         <div className="list">
           {filtered.map((c) => (
-            <CompanyRow key={c.id} company={c} store={store} />
+            <CompanyRow key={c.id} company={c} store={store} readOnly={readOnly} />
           ))}
           {filtered.length === 0 && <div className="empty">No companies match.</div>}
         </div>
       </section>
 
-      {showForm && (
+      {!readOnly && showForm && (
         <CompanyForm
           onClose={() => setShowForm(false)}
           onSave={(data) => {
@@ -104,7 +107,15 @@ export function Companies({ store }: { store: Store }) {
   )
 }
 
-function CompanyRow({ company, store }: { company: Company; store: Store }) {
+function CompanyRow({
+  company,
+  store,
+  readOnly,
+}: {
+  company: Company
+  store: Store
+  readOnly: boolean
+}) {
   return (
     <div className={`row priority-${company.priority}`}>
       <div>
@@ -121,43 +132,58 @@ function CompanyRow({ company, store }: { company: Company; store: Store }) {
           ))}
           <span className="chip">{SIZE_LABELS[company.size]}</span>
           <span className="chip amber">P{company.priority}</span>
-          <span className="chip muted">{relativeChecked(company.lastChecked)}</span>
+          {!readOnly && (
+            <span className="chip muted">{relativeChecked(company.lastChecked)}</span>
+          )}
+          {readOnly && (
+            <span className="chip muted">{STAGE_LABELS[company.stage]}</span>
+          )}
         </div>
         <div className="inline-actions" style={{ marginTop: 10 }}>
-          <select
-            value={company.stage}
-            onChange={(e) => store.setCompanyStage(company.id, e.target.value as CompanyStage)}
-          >
-            {STAGES.map((s) => (
-              <option key={s} value={s}>
-                {STAGE_LABELS[s]}
-              </option>
-            ))}
-          </select>
-          <button onClick={() => store.markChecked(company.id)}>Mark checked</button>
+          {!readOnly && (
+            <>
+              <select
+                value={company.stage}
+                onChange={(e) =>
+                  store.setCompanyStage(company.id, e.target.value as CompanyStage)
+                }
+              >
+                {STAGES.map((s) => (
+                  <option key={s} value={s}>
+                    {STAGE_LABELS[s]}
+                  </option>
+                ))}
+              </select>
+              <button onClick={() => store.markChecked(company.id)}>Mark checked</button>
+            </>
+          )}
           <a href={company.careersUrl} target="_blank" rel="noreferrer">
             Careers
           </a>
           <a href={company.website} target="_blank" rel="noreferrer">
             Site
           </a>
-          <button
-            onClick={() => {
-              if (confirm(`Remove ${company.name}?`)) store.deleteCompany(company.id)
-            }}
-          >
-            Remove
-          </button>
+          {!readOnly && (
+            <button
+              onClick={() => {
+                if (confirm(`Remove ${company.name}?`)) store.deleteCompany(company.id)
+              }}
+            >
+              Remove
+            </button>
+          )}
         </div>
-        {company.contacts && (
+        {company.contacts && !readOnly && (
           <div className="meta" style={{ marginTop: 8 }}>
             Contacts: {company.contacts}
           </div>
         )}
       </div>
-      <div className="meta" style={{ textAlign: 'right' }}>
-        Added {formatDate(company.createdAt)}
-      </div>
+      {!readOnly && (
+        <div className="meta" style={{ textAlign: 'right' }}>
+          Added {formatDate(company.createdAt)}
+        </div>
+      )}
     </div>
   )
 }

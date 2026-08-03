@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Store } from '../hooks/useStore'
 import { ROLE_LABELS, LOCATIONS } from '../lib/labels'
+import { shareViewUrl } from '../lib/viewMode'
 import type { LocationTag, RoleFocus } from '../types'
 
 export function Settings({ store }: { store: Store }) {
@@ -9,6 +10,8 @@ export function Settings({ store }: { store: Store }) {
   const [school, setSchool] = useState(profile.school)
   const [program, setProgram] = useState(profile.program)
   const [targetStart, setTargetStart] = useState(profile.targetStart.slice(0, 10))
+  const [copied, setCopied] = useState(false)
+  const shareUrl = shareViewUrl()
 
   function toggleCity(city: LocationTag) {
     const has = profile.targetCities.includes(city)
@@ -25,6 +28,13 @@ export function Settings({ store }: { store: Store }) {
       targetRoles: has
         ? profile.targetRoles.filter((r) => r !== role)
         : [...profile.targetRoles, role],
+    })
+  }
+
+  function copyShare() {
+    void navigator.clipboard.writeText(shareUrl).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
     })
   }
 
@@ -111,6 +121,32 @@ export function Settings({ store }: { store: Store }) {
           <button className="btn btn-danger" onClick={store.resetToSeed}>
             Reset starter data
           </button>
+        </div>
+      </section>
+
+      <section className="panel">
+        <div className="panel-head">
+          <div>
+            <h3>Share (view only)</h3>
+            <p>Others can browse companies &amp; openings — they can&apos;t edit</p>
+          </div>
+        </div>
+        <div className="list">
+          <div className="row">
+            <div>
+              <h4>Your view-only link</h4>
+              <div className="meta" style={{ wordBreak: 'break-all' }}>
+                {shareUrl}
+              </div>
+              <div className="meta" style={{ marginTop: 8 }}>
+                Applications stay private on your device. Viewers see the published company
+                atlas and openings from the latest deploy.
+              </div>
+              <div className="inline-actions" style={{ marginTop: 10 }}>
+                <button onClick={copyShare}>{copied ? 'Copied!' : 'Copy link'}</button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

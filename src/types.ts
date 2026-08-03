@@ -15,6 +15,15 @@ export type RoleFocus = 'ux-research' | 'human-factors' | 'product' | 'design' |
 
 export type JobStatus = 'new' | 'saved' | 'applied' | 'interviewing' | 'rejected' | 'closed'
 
+/** Application pipeline statuses — only apps you logged after applying */
+export type ApplicationStatus =
+  | 'applied'
+  | 'interviewing'
+  | 'denied'
+  | 'ghosted'
+  | 'accepted'
+  | 'withdrawn'
+
 export interface Company {
   id: string
   name: string
@@ -46,6 +55,20 @@ export interface Job {
   salaryRange: string
 }
 
+export interface Application {
+  id: string
+  companyId: string
+  companyName: string
+  roleTitle: string
+  roleFocus: RoleFocus
+  location: LocationTag
+  url: string
+  appliedAt: string
+  status: ApplicationStatus
+  notes: string
+  updatedAt: string
+}
+
 export interface Milestone {
   id: string
   title: string
@@ -67,5 +90,6 @@ export interface AppState {
   profile: Profile
   companies: Company[]
   jobs: Job[]
+  applications: Application[]
   milestones: Milestone[]
 }
