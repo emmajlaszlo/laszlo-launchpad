@@ -2,6 +2,9 @@ import { createContext, useContext } from 'react'
 
 const ViewModeContext = createContext(false)
 
+/** Public share site (GitHub Pages) — always use this for friend links */
+export const PUBLIC_SHARE_ORIGIN = 'https://emmajlaszlo.github.io/laszlo-launchpad'
+
 export function ViewModeProvider({
   readOnly,
   children,
@@ -25,11 +28,7 @@ export function isShareView() {
   return view === '1' || view === 'share' || view === 'true'
 }
 
+/** Always return the public view-only URL (never localhost). */
 export function shareViewUrl() {
-  if (typeof window === 'undefined') return ''
-  const url = new URL(window.location.href)
-  url.search = ''
-  url.hash = ''
-  url.searchParams.set('view', '1')
-  return url.toString()
+  return `${PUBLIC_SHARE_ORIGIN}/?view=1`
 }
