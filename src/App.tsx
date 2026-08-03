@@ -12,7 +12,7 @@ type Tab = 'home' | 'companies' | 'jobs' | 'pipeline' | 'settings'
 const TABS: { id: Tab; label: string }[] = [
   { id: 'home', label: 'Home' },
   { id: 'companies', label: 'Companies' },
-  { id: 'jobs', label: 'Jobs' },
+  { id: 'jobs', label: 'Openings' },
   { id: 'pipeline', label: 'Pipeline' },
   { id: 'settings', label: 'Profile' },
 ]
@@ -29,9 +29,7 @@ export default function App() {
             <span className="brand-dot" aria-hidden />
             <h1>Laszlo Launchpad</h1>
           </div>
-          <p>
-            Personalized medtech job hunt · UMSI UX · California · Summer/Fall 2027 · 46 companies
-          </p>
+          <p>Combating the post grad scaries</p>
         </div>
         <div className="top-actions">
           <button className="btn" onClick={store.exportJson}>
@@ -52,7 +50,9 @@ export default function App() {
         ))}
       </nav>
 
-      {tab === 'home' && <Dashboard store={store} />}
+      {tab === 'home' && (
+        <Dashboard store={store} onOpenOpenings={() => setTab('jobs')} />
+      )}
       {tab === 'companies' && <Companies store={store} />}
       {tab === 'jobs' && <Jobs store={store} />}
       {tab === 'pipeline' && <Pipeline store={store} />}

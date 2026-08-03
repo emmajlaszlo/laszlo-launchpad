@@ -38,12 +38,26 @@ export function Companies({ store }: { store: Store }) {
         <div className="panel-head">
           <div>
             <h3>Company atlas</h3>
-            <p>Medtech & healthtech targets in California</p>
+            <p>
+              Medtech & healthtech targets — refreshed weekly with the Saturday scan
+              {store.lastAtlasUpdateAt
+                ? ` · last atlas update ${formatDate(store.lastAtlasUpdateAt)}`
+                : ''}
+            </p>
           </div>
           <button className="btn btn-primary" onClick={() => setShowForm(true)}>
             Add company
           </button>
         </div>
+
+        {store.atlasUpdateNotes && (
+          <div className="alert" style={{ marginBottom: 14 }}>
+            <div>
+              <strong>Atlas pulse</strong>
+              <span>{store.atlasUpdateNotes}</span>
+            </div>
+          </div>
+        )}
 
         <div className="filters">
           <input

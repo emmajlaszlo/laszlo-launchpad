@@ -126,9 +126,10 @@ export function Settings({ store }: { store: Store }) {
             <div>
               <h4>What gets scanned</h4>
               <div className="meta">
-                All tracked companies&apos; careers URLs. Looking for UX research, human
-                factors, usability, associate/product management, and closely related
-                entry-level design research roles — especially CA (SF, SD, LA) or remote-CA.
+                Every Saturday the automation refreshes the <strong>Company atlas</strong>{' '}
+                (add/fix targets, fix careers URLs) and scans careers pages for UX research,
+                human factors, usability, and associate/product roles — especially CA (SF, SD,
+                LA) or remote-CA.
               </div>
             </div>
           </div>
@@ -136,10 +137,10 @@ export function Settings({ store }: { store: Store }) {
             <div>
               <h4>Where results land</h4>
               <div className="meta">
-                Matching openings are written to{' '}
-                <code>src/data/discovered-jobs.json</code>, then show up under Jobs after
-                you pull the latest and refresh. Manual status edits still live in this
-                browser.
+                Companies update in <code>src/data/companies.ts</code> (+{' '}
+                <code>atlas-meta.json</code>). Openings land in{' '}
+                <code>src/data/discovered-jobs.json</code>. Pull the weekly PR, refresh the
+                app, and both the Companies and Openings tabs update.
               </div>
             </div>
           </div>

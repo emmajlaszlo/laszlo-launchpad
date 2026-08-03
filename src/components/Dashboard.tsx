@@ -11,7 +11,13 @@ import {
 } from '../lib/labels'
 import type { Company, Job } from '../types'
 
-export function Dashboard({ store }: { store: Store }) {
+export function Dashboard({
+  store,
+  onOpenOpenings,
+}: {
+  store: Store
+  onOpenOpenings?: () => void
+}) {
   const { profile, companies, jobs, milestones } = store.state
   const days = daysUntil(profile.targetStart)
   const months = Math.max(0, Math.round(days / 30.4))
@@ -166,18 +172,27 @@ export function Dashboard({ store }: { store: Store }) {
         <div className="panel-head">
           <div>
             <h3>Recent openings</h3>
-            <p>Roles you&apos;ve logged for UX research, HF, and product</p>
+            <p>Preview — full board lives on the Openings tab</p>
           </div>
+          {onOpenOpenings && (
+            <button className="btn btn-primary" onClick={onOpenOpenings}>
+              Open openings
+            </button>
+          )}
         </div>
         {jobs.length === 0 ? (
           <div className="empty">
-            No jobs yet — when you spot an opening, add it under Jobs and Laszlo
-            Launchpad will keep it in your pipeline.
+            No openings yet. The Saturday scan will fill the Openings tab — or log one
+            there anytime.
           </div>
         ) : (
           <div className="list">
             {jobs.slice(0, 5).map((j) => (
-              <JobMini key={j.id} job={j} companyName={companyName(store, j.companyId)} />
+              <JobMini
+                key={j.id}
+                job={j}
+                companyName={companyName(store, j.companyId, j.companyName)}
+              />
             ))}
           </div>
         )}
@@ -186,8 +201,8 @@ export function Dashboard({ store }: { store: Store }) {
   )
 }
 
-function companyName(store: Store, id: string) {
-  return store.state.companies.find((c) => c.id === id)?.name ?? 'Unknown'
+function companyName(store: Store, id: string, fallback?: string) {
+  return store.state.companies.find((c) => c.id === id)?.name ?? fallback ?? 'Unknown'
 }
 
 function CompanyMini({ company }: { company: Company }) {

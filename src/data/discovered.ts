@@ -27,6 +27,7 @@ export function toAppJob(d: DiscoveredJob): Job {
   return {
     id: d.id,
     companyId: d.companyId,
+    companyName: d.companyName,
     title: d.title,
     roleFocus: d.roleFocus,
     location: d.location,

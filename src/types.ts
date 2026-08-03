@@ -34,6 +34,7 @@ export interface Company {
 export interface Job {
   id: string
   companyId: string
+  companyName?: string
   title: string
   roleFocus: RoleFocus
   location: LocationTag

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import atlasMetaFile from '../data/atlas-meta.json'
 import discoveredFile from '../data/discovered-jobs.json'
 import { toAppJob, type DiscoveredJobsFile } from '../data/discovered'
 import { seedState } from '../data/seed'
@@ -12,11 +13,17 @@ import type {
   Profile,
 } from '../types'
 
-const STORAGE_KEY = 'laszlo-launchpad-v2'
+const STORAGE_KEY = 'laszlo-launchpad-v3'
+
+interface AtlasMetaFile {
+  lastAtlasUpdateAt: string | null
+  updateNotes: string
+  companiesChecked: number
+}
 
 function mergeCompanies(saved: Company[] | undefined): Company[] {
   const byId = new Map((saved ?? []).map((c) => [c.id, c]))
-  return seedState.companies.map((seed) => {
+  const merged = seedState.companies.map((seed) => {
     const prev = byId.get(seed.id)
     if (!prev) return structuredClone(seed)
     return {
@@ -28,15 +35,22 @@ function mergeCompanies(saved: Company[] | undefined): Company[] {
       lastChecked: prev.lastChecked,
     }
   })
+  const seedIds = new Set(seedState.companies.map((c) => c.id))
+  const extras = (saved ?? []).filter((c) => !seedIds.has(c.id))
+  return [...extras, ...merged]
 }
 
 function mergeJobs(savedJobs: Job[] | undefined, discovered: Job[]): Job[] {
   const map = new Map<string, Job>()
   for (const j of discovered) map.set(j.id, j)
   for (const j of savedJobs ?? []) {
-    // Prefer local status/notes edits for the same id
     const existing = map.get(j.id)
-    map.set(j.id, existing ? { ...existing, ...j, title: existing.title, url: existing.url || j.url } : j)
+    map.set(
+      j.id,
+      existing
+        ? { ...existing, ...j, title: existing.title, url: existing.url || j.url }
+        : j,
+    )
   }
   return [...map.values()].sort(
     (a, b) => new Date(b.foundAt).getTime() - new Date(a.foundAt).getTime(),
@@ -49,6 +63,10 @@ function loadDiscoveredJobs(): { jobs: Job[]; lastScanAt: string | null } {
     lastScanAt: file.lastScanAt,
     jobs: (file.jobs ?? []).map(toAppJob),
   }
+}
+
+function loadAtlasMeta(): AtlasMetaFile {
+  return atlasMetaFile as AtlasMetaFile
 }
 
 function loadState(): AppState {
@@ -87,8 +105,11 @@ function uid(prefix: string) {
 
 export function useStore() {
   const discoveredMeta = useMemo(() => loadDiscoveredJobs(), [])
+  const atlasMeta = useMemo(() => loadAtlasMeta(), [])
   const [state, setState] = useState<AppState>(loadState)
   const [lastScanAt] = useState<string | null>(discoveredMeta.lastScanAt)
+  const [lastAtlasUpdateAt] = useState<string | null>(atlasMeta.lastAtlasUpdateAt)
+  const [atlasUpdateNotes] = useState(atlasMeta.updateNotes)
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
@@ -105,6 +126,7 @@ export function useStore() {
       createdAt: new Date().toISOString(),
     }
     setState((s) => ({ ...s, companies: [next, ...s.companies] }))
+    return next
   }, [])
 
   const updateCompany = useCallback((id: string, patch: Partial<Company>) => {
@@ -114,13 +136,19 @@ export function useStore() {
     }))
   }, [])
 
-  const setCompanyStage = useCallback((id: string, stage: CompanyStage) => {
-    updateCompany(id, { stage })
-  }, [updateCompany])
+  const setCompanyStage = useCallback(
+    (id: string, stage: CompanyStage) => {
+      updateCompany(id, { stage })
+    },
+    [updateCompany],
+  )
 
-  const markChecked = useCallback((id: string) => {
-    updateCompany(id, { lastChecked: new Date().toISOString() })
-  }, [updateCompany])
+  const markChecked = useCallback(
+    (id: string) => {
+      updateCompany(id, { lastChecked: new Date().toISOString() })
+    },
+    [updateCompany],
+  )
 
   const deleteCompany = useCallback((id: string) => {
     setState((s) => ({
@@ -146,9 +174,12 @@ export function useStore() {
     }))
   }, [])
 
-  const setJobStatus = useCallback((id: string, status: JobStatus) => {
-    updateJob(id, { status })
-  }, [updateJob])
+  const setJobStatus = useCallback(
+    (id: string, status: JobStatus) => {
+      updateJob(id, { status })
+    },
+    [updateJob],
+  )
 
   const deleteJob = useCallback((id: string) => {
     setState((s) => ({ ...s, jobs: s.jobs.filter((j) => j.id !== id) }))
@@ -195,6 +226,8 @@ export function useStore() {
   return {
     state,
     lastScanAt,
+    lastAtlasUpdateAt,
+    atlasUpdateNotes,
     updateProfile,
     addCompany,
     updateCompany,
