@@ -1,7 +1,262 @@
 {
-  "lastScanAt": "2026-08-03T21:58:00.000Z",
-  "scanNotes": "Manual deep scan Aug 3 2026 for entry-level / early-career UXR & human factors (medtech-first, options open). Linked to live careers boards or recent postings; verify each URL before applying — listings move fast. Target start window summer/fall 2027 after UMSI MSI.",
+  "lastScanAt": "2026-08-29T09:45:00.000Z",
+  "scanNotes": "Weekly scan 2026-08-29: 17 new live/watch listings. Strongest HF signals \u2014 Intuitive (HF Design Engineer posted Aug 27; Sr HF Analyst Aug 26; Ion Sr HFE; HF Research Engineer), Amgen Sr HFE (Thousand Oaks, Aug 26), Edwards Lead Designer UX (Irvine SaMD HF), ClariMed Sr HFE + HF internships (San Jose). Also ResMed Sr UX Designer (SD), Cala/CeriBell/AppliedVR/Freenome PMs, Hinge/Abridge design/PM (no UXR title this week). Fixed Insulet/iRhythm careers URLs. Target start summer/fall 2027 after UMSI MSI \u2014 prefer internships/network now; verify URLs before apply.",
   "jobs": [
+    {
+      "id": "scan-20260829-c-intuitive-hfde",
+      "companyId": "c-intuitive",
+      "companyName": "Intuitive",
+      "title": "Human Factors Design Engineer",
+      "roleFocus": "human-factors",
+      "location": "SF Bay",
+      "url": "https://jobs.smartrecruiters.com/Intuitive/744000146054939",
+      "status": "new",
+      "postedAt": "2026-08-27T19:07:37.000Z",
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Sunnyvale onsite. Posted ~Aug 27 2026. BS/MS in HF/HCI + 3\u20135 yrs preferred; listing notes level can flex by candidate. Flagship CA medtech HF apply/network target for 2027.",
+      "salaryRange": "~$122k\u2013$208k (region bands)",
+      "whyFit": "Live Sunnyvale HF design engineer role on da Vinci/Ion \u2014 top Bay medtech HF signal this week."
+    },
+    {
+      "id": "scan-20260829-c-intuitive-srhfa",
+      "companyId": "c-intuitive",
+      "companyName": "Intuitive",
+      "title": "Sr Human Factors Analyst",
+      "roleFocus": "human-factors",
+      "location": "SF Bay",
+      "url": "https://jobs.smartrecruiters.com/Intuitive/744000145834121",
+      "status": "new",
+      "postedAt": "2026-08-26T20:55:47.000Z",
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Posted ~Aug 26 2026 via SmartRecruiters. Analyst path can be more research/analysis oriented than senior design lead \u2014 read JD; useful networking even if leveling is high.",
+      "salaryRange": "",
+      "whyFit": "Fresh Intuitive HF analyst opening \u2014 research-leaning HF craft adjacent to MSI UXR."
+    },
+    {
+      "id": "scan-20260829-c-intuitive-srhfe-ion",
+      "companyId": "c-intuitive",
+      "companyName": "Intuitive",
+      "title": "Senior Human Factors Engineer - Ion",
+      "roleFocus": "human-factors",
+      "location": "SF Bay",
+      "url": "https://jobs.smartrecruiters.com/Intuitive/744000143148639",
+      "status": "new",
+      "postedAt": "2026-08-12T16:46:22.000Z",
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Sunnyvale. Ion bronchoscopy platform HF. Senior leveling \u2014 track team + alumni for 2027 associate roles.",
+      "salaryRange": "",
+      "whyFit": "Ion product HF at Intuitive \u2014 deep usability/clinical workflow research in CA robotics."
+    },
+    {
+      "id": "scan-20260829-c-intuitive-srhfre",
+      "companyId": "c-intuitive",
+      "companyName": "Intuitive",
+      "title": "Senior Human Factors Research Engineer",
+      "roleFocus": "ux-research",
+      "location": "SF Bay",
+      "url": "https://careers.intuitive.com/en/jobs/744000127528120/JOB214214/senior-human-factors-research-engineer/",
+      "status": "new",
+      "postedAt": "2026-05-20T23:51:27.000Z",
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Still live. Heavy experimental behavioral research + data science (6+ yrs). Stretch/network role; maps to research methods training.",
+      "salaryRange": "~$146k\u2013$245k (region bands)",
+      "whyFit": "Research-heavy HFRE role \u2014 closest Intuitive cousin to academic UXR methods."
+    },
+    {
+      "id": "scan-20260829-c-intuitive-srhfde-ff",
+      "companyId": "c-intuitive",
+      "companyName": "Intuitive",
+      "title": "Sr. Human Factors Design Engineer - Future Forward Team",
+      "roleFocus": "human-factors",
+      "location": "SF Bay",
+      "url": "https://jobs.smartrecruiters.com/Intuitive/744000116285176",
+      "status": "new",
+      "postedAt": "2026-03-23T21:08:17.000Z",
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Future Forward advanced concepts team. Senior; useful for understanding early-stage HF hiring bar.",
+      "salaryRange": "",
+      "whyFit": "Early-concept surgical robotics HF \u2014 aspirational target while finishing MSI."
+    },
+    {
+      "id": "scan-20260829-c-amgen-srhfe",
+      "companyId": "c-amgen",
+      "companyName": "Amgen",
+      "title": "Senior Human Factors Engineer",
+      "roleFocus": "human-factors",
+      "location": "Other CA",
+      "url": "https://careers.amgen.com/en/job/thousand-oaks/senior-human-factors-engineer/87/99773664752",
+      "status": "new",
+      "postedAt": "2026-08-26T00:00:00.000Z",
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Thousand Oaks / Cambridge hybrid. JOB R-253864. Posted Aug 26 2026. MS + 2 yrs HF OR BS + 4 yrs. Drug-delivery / combination-product HF (IEC 62366). Strong mid-level bar \u2014 network now for associate openings.",
+      "salaryRange": "$129k\u2013$175k",
+      "whyFit": "Live CA combination-product HFE \u2014 core medtech usability path for MSI grads aiming devices."
+    },
+    {
+      "id": "scan-20260829-c-edwards-leadux",
+      "companyId": "c-edwards",
+      "companyName": "Edwards Lifesciences",
+      "title": "Lead Designer, UX",
+      "roleFocus": "design",
+      "location": "Los Angeles",
+      "url": "https://edwards.wd5.myworkdayjobs.com/en-US/EdwardsCareers/job/USA---California--Irvine/Lead-Designer--UX_Req-48986",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Irvine onsite (IHFM AI/Product/Platforms). Req-48986. Includes SaMD usability engineering / formative-summative HF \u2014 senior SME track, not entry. Set alerts for Associate UX / HF Engineer.",
+      "salaryRange": "$121k\u2013$171k (CA)",
+      "whyFit": "Irvine Edwards UX + software HF \u2014 top SoCal medtech design/usability org to watch for 2027."
+    },
+    {
+      "id": "scan-20260829-c-resmed-srux",
+      "companyId": "c-resmed",
+      "companyName": "ResMed",
+      "title": "Senior UX Designer - AI Native",
+      "roleFocus": "design",
+      "location": "San Diego",
+      "url": "https://resmed.wd3.myworkdayjobs.com/en-US/ResMed_External_Careers/job/San-Diego-CA-United-States/Senior-UX-Designer_JR_052297-1",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "San Diego. JR_052297. Senior product design; no dedicated UXR title on board this week \u2014 still a door into ResMed design/research culture.",
+      "salaryRange": "",
+      "whyFit": "Live San Diego medtech UX design opening at priority sleep/respiratory company."
+    },
+    {
+      "id": "scan-20260829-c-resmed-srpm",
+      "companyId": "c-resmed",
+      "companyName": "ResMed",
+      "title": "Senior Product Manager",
+      "roleFocus": "product",
+      "location": "San Diego",
+      "url": "https://resmed.wd3.myworkdayjobs.com/en-US/ResMed_External_Careers/job/San-Diego-CA-United-States/Senior-Product-Manager_JR_053344",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "San Diego. Posted recently (JR_053344). Senior PM \u2014 open option beyond pure UXR; useful for networking into patient digital products.",
+      "salaryRange": "",
+      "whyFit": "San Diego ResMed product role \u2014 digital health product path while hunting HF/UXR."
+    },
+    {
+      "id": "scan-20260829-c-clarimed-srhfe",
+      "companyId": "c-clarimed",
+      "companyName": "ClariMed",
+      "title": "Sr. Human Factors Engineer",
+      "roleFocus": "human-factors",
+      "location": "SF Bay",
+      "url": "https://clarimed.com/aboutus/careers",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "San Jose / Atlanta / Boston / Chadds Ford. MedTech HF consulting \u2014 usability studies + regulatory HF docs. Apply via careers page. Strong consulting bridge into device HF.",
+      "salaryRange": "",
+      "whyFit": "Bay Area medtech HF consultancy \u2014 high volume usability research practice for MSI skills."
+    },
+    {
+      "id": "scan-20260829-c-clarimed-intern",
+      "companyId": "c-clarimed",
+      "companyName": "ClariMed",
+      "title": "Human Factors Internships (all locations)",
+      "roleFocus": "human-factors",
+      "location": "SF Bay",
+      "url": "https://clarimed.com/aboutus/careers",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Open call for HF internships across offices incl. San Jose. Email hr@clarimed.com per careers page. Ideal while finishing MSI before May 2027 FT search.",
+      "salaryRange": "Intern",
+      "whyFit": "Hands-on med device HF internship pipeline \u2014 best early-career fit found this week."
+    },
+    {
+      "id": "scan-20260829-c-cala-pm",
+      "companyId": "c-cala",
+      "companyName": "Cala Health",
+      "title": "Product Manager",
+      "roleFocus": "product",
+      "location": "SF Bay",
+      "url": "https://job-boards.greenhouse.io/calahealth/jobs/6132479004",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "San Mateo. Wearable neuromodulation. No UXR title live; PM is adjacent option at priority HF device startup.",
+      "salaryRange": "",
+      "whyFit": "Bay wearable therapy device PM \u2014 adjacent to HF/patient research interests."
+    },
+    {
+      "id": "scan-20260829-c-ceribell-pm",
+      "companyId": "c-ceribell",
+      "companyName": "CeriBell",
+      "title": "Senior Product Manager - SaMD (Hybrid)",
+      "roleFocus": "product",
+      "location": "SF Bay",
+      "url": "https://job-boards.greenhouse.io/ceribell/jobs/6130139004",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Sunnyvale hybrid. Point-of-care EEG AI SaMD. Senior PM \u2014 watch for UXR/clinical research support roles.",
+      "salaryRange": "",
+      "whyFit": "Sunnyvale clinical AI SaMD product \u2014 clinician workflow research adjacency."
+    },
+    {
+      "id": "scan-20260829-c-appliedvr-pm",
+      "companyId": "c-appliedvr",
+      "companyName": "AppliedVR",
+      "title": "Product Manager",
+      "roleFocus": "product",
+      "location": "Remote CA",
+      "url": "https://www.appliedvr.io/careers?gh_jid=5373277008",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Remote. Therapeutic VR for pain. LA-rooted digital therapeutic \u2014 good open option if UXR titles are quiet.",
+      "salaryRange": "",
+      "whyFit": "Digital therapeutic product role \u2014 research-friendly healthtech beyond hardware HF."
+    },
+    {
+      "id": "scan-20260829-c-freenome-tpm",
+      "companyId": "c-freenome",
+      "companyName": "Freenome",
+      "title": "Technical Product Manager III",
+      "roleFocus": "product",
+      "location": "Remote CA",
+      "url": "https://job-boards.greenhouse.io/freenome/jobs/8504755002",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Remote. Cancer screening. Senior technical PM \u2014 stretch/network only for UXR path.",
+      "salaryRange": "",
+      "whyFit": "Remote cancer-screening product role \u2014 optional digital health track."
+    },
+    {
+      "id": "scan-20260829-c-hinge-pm",
+      "companyId": "c-hinge",
+      "companyName": "Hinge Health",
+      "title": "Senior Product Manager, Consumer Products (UXR watch)",
+      "roleFocus": "product",
+      "location": "SF Bay",
+      "url": "https://jobs.ashbyhq.com/hinge-health/4ab249ef-1559-4de9-a4c2-a2e4a8aa8d1e",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "Ashby board: no dedicated UX Researcher title this week; PM + senior/staff product designers open. Keep UXR alert on hinge-health Ashby.",
+      "salaryRange": "",
+      "whyFit": "Digital MSK care still hiring product \u2014 set UXR alert; strong early-career health UXR employer historically."
+    },
+    {
+      "id": "scan-20260829-c-abridge-design",
+      "companyId": "c-abridge",
+      "companyName": "Abridge",
+      "title": "Senior Product Designer (clinical AI \u2014 research watch)",
+      "roleFocus": "design",
+      "location": "Remote CA",
+      "url": "https://jobs.ashbyhq.com/Abridge/6aab826b-a60a-434e-889d-e4648f289305",
+      "status": "new",
+      "postedAt": null,
+      "foundAt": "2026-08-29T09:45:00.000Z",
+      "notes": "No UXR title on Ashby this week; Senior/Staff Product Designer + Forward Deployed PM open. Watch for research roles supporting clinicians.",
+      "salaryRange": "",
+      "whyFit": "Clinical documentation AI \u2014 open option when pure UXR boards are quiet."
+    },
     {
       "id": "scan-20260803-c-irhythm-hfe1",
       "companyId": "c-irhythm",
@@ -13,9 +268,9 @@
       "status": "new",
       "postedAt": null,
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "Remote US or hybrid SF Bay. MS in HF + limited experience fits Engineer I. ~$72–90k listed on aggregator.",
-      "salaryRange": "$72k–$90k",
-      "whyFit": "Entry-level HF on ambulatory cardiac monitoring — strong medtech + CA/remote fit for a 2027 grad."
+      "notes": "Remote US or hybrid SF Bay. MS in HF + limited experience fits Engineer I. ~$72\u201390k listed on aggregator.",
+      "salaryRange": "$72k\u2013$90k",
+      "whyFit": "Entry-level HF on ambulatory cardiac monitoring \u2014 strong medtech + CA/remote fit for a 2027 grad."
     },
     {
       "id": "scan-20260803-c-bd-hfux",
@@ -28,9 +283,9 @@
       "status": "new",
       "postedAt": null,
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "Irvine Laguna Canyon posting reported recently. Search jobs.bd.com for “Human Factors” + Irvine. ~2 yrs preferred — still worth watching/networking for 2027.",
-      "salaryRange": "~$81k–$133k (reported)",
-      "whyFit": "SoCal med device HF/UX with usability studies and IEC 62366 exposure — core target profile."
+      "notes": "Irvine Laguna Canyon posting reported recently. Search jobs.bd.com for \u201cHuman Factors\u201d + Irvine. ~2 yrs preferred \u2014 still worth watching/networking for 2027.",
+      "salaryRange": "~$81k\u2013$133k (reported)",
+      "whyFit": "SoCal med device HF/UX with usability studies and IEC 62366 exposure \u2014 core target profile."
     },
     {
       "id": "scan-20260803-c-cepheid-hfe1",
@@ -43,9 +298,9 @@
       "status": "new",
       "postedAt": null,
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "Sunnyvale. Past HFE I reqs: Bachelor’s + 2–4 yrs or Master’s + 0–2 yrs in UX/HFE. Search Danaher/Cepheid careers for “Human Factors”.",
-      "salaryRange": "~$80k–$140k (prior range)",
-      "whyFit": "Master’s-friendly HFE I on diagnostics instruments — excellent Bay Area medtech HF path."
+      "notes": "Sunnyvale. Past HFE I reqs: Bachelor\u2019s + 2\u20134 yrs or Master\u2019s + 0\u20132 yrs in UX/HFE. Search Danaher/Cepheid careers for \u201cHuman Factors\u201d.",
+      "salaryRange": "~$80k\u2013$140k (prior range)",
+      "whyFit": "Master\u2019s-friendly HFE I on diagnostics instruments \u2014 excellent Bay Area medtech HF path."
     },
     {
       "id": "scan-20260803-c-medtronic-uxintern",
@@ -58,24 +313,24 @@
       "status": "new",
       "postedAt": "2026-06-01T00:00:00.000Z",
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "Internships often open months ahead. Search Medtronic careers for UX / User Research intern for summer 2027. Master’s enrollment is a match.",
+      "notes": "Internships often open months ahead. Search Medtronic careers for UX / User Research intern for summer 2027. Master\u2019s enrollment is a match.",
       "salaryRange": "Intern",
-      "whyFit": "Hands-on UXR in medical devices while finishing MSI — pipeline into full-time HF/UXR."
+      "whyFit": "Hands-on UXR in medical devices while finishing MSI \u2014 pipeline into full-time HF/UXR."
     },
     {
       "id": "scan-20260803-c-veranex-designresearcher",
       "companyId": "c-veranex",
       "companyName": "Veranex",
-      "title": "Global Design Researcher — MedTech & Human-Centered UX",
+      "title": "Global Design Researcher \u2014 MedTech & Human-Centered UX",
       "roleFocus": "ux-research",
       "location": "Other CA",
       "url": "https://jobs.digitalhire.com/job-listing/opening/2qY6E8TltiRuSMOZYdVWry",
       "status": "new",
       "postedAt": null,
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "Minneapolis-based posting (junior 1–3 yrs). Consulting MedTech research — consider for remote/relocation flexibility and portfolio-building.",
+      "notes": "Minneapolis-based posting (junior 1\u20133 yrs). Consulting MedTech research \u2014 consider for remote/relocation flexibility and portfolio-building.",
       "salaryRange": "",
-      "whyFit": "MedTech design research consulting — qualitative UXR on healthcare products."
+      "whyFit": "MedTech design research consulting \u2014 qualitative UXR on healthcare products."
     },
     {
       "id": "scan-20260803-c-philips-uxrspecialist",
@@ -88,9 +343,9 @@
       "status": "new",
       "postedAt": null,
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "Recent Bothell WA Sonicare R&D research ops role (~$80–127k). Search Philips careers for “User Experience Research” / Human Factors. Regulated device research experience transferable.",
-      "salaryRange": "~$80k–$127k (WA listing)",
-      "whyFit": "Medical device UXR in a regulated QMS environment — skills map to CA medtech HF/UXR."
+      "notes": "Recent Bothell WA Sonicare R&D research ops role (~$80\u2013127k). Search Philips careers for \u201cUser Experience Research\u201d / Human Factors. Regulated device research experience transferable.",
+      "salaryRange": "~$80k\u2013$127k (WA listing)",
+      "whyFit": "Medical device UXR in a regulated QMS environment \u2014 skills map to CA medtech HF/UXR."
     },
     {
       "id": "scan-20260803-c-genentech-hfe",
@@ -103,22 +358,22 @@
       "status": "new",
       "postedAt": null,
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "South San Francisco. Senior postings appear often; set job alert for “Human Factors” — network now for 2027 associate-level openings on devices/IFU/usability.",
+      "notes": "South San Francisco. Senior postings appear often; set job alert for \u201cHuman Factors\u201d \u2014 network now for 2027 associate-level openings on devices/IFU/usability.",
       "salaryRange": "",
-      "whyFit": "Bay Area combination-product HF — high signal for MSI grads aiming medtech usability."
+      "whyFit": "Bay Area combination-product HF \u2014 high signal for MSI grads aiming medtech usability."
     },
     {
       "id": "scan-20260803-c-dexcom-userresearch",
       "companyId": "c-dexcom",
       "companyName": "Dexcom",
-      "title": "User Research (CGM) — watch team openings",
+      "title": "User Research (CGM) \u2014 watch team openings",
       "roleFocus": "ux-research",
       "location": "San Diego",
       "url": "https://www.dexcom.com/careers",
       "status": "new",
       "postedAt": null,
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "Sr Manager User Research listed recently (Columbus). San Diego HQ regularly needs UXR/HF for CGM apps — set alerts for Associate / UX Researcher / Human Factors.",
+      "notes": "Sr Manager User Research listed recently (Columbus). San Diego HQ regularly needs UXR/HF for CGM apps \u2014 set alerts for Associate / UX Researcher / Human Factors.",
       "salaryRange": "",
       "whyFit": "Top San Diego medtech UXR target for diabetes patient + clinician research."
     },
@@ -126,7 +381,7 @@
       "id": "scan-20260803-c-intuitive-hf",
       "companyId": "c-intuitive",
       "companyName": "Intuitive",
-      "title": "Human Factors / UX Design Research — watch careers",
+      "title": "Human Factors / UX Design Research \u2014 watch careers",
       "roleFocus": "human-factors",
       "location": "SF Bay",
       "url": "https://careers.intuitive.com",
@@ -135,13 +390,13 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "Sunnyvale robotic surgery. Active HF/UX research culture. Search careers for Human Factors, UX Research, Design Research; network with HF team for 2027 new-grad timing.",
       "salaryRange": "",
-      "whyFit": "Premier CA surgical robotics HF org — flagship target for human factors career."
+      "whyFit": "Premier CA surgical robotics HF org \u2014 flagship target for human factors career."
     },
     {
       "id": "scan-20260803-c-illumina-hf",
       "companyId": "c-illumina",
       "companyName": "Illumina",
-      "title": "Human Factors / Instrument UX — watch careers",
+      "title": "Human Factors / Instrument UX \u2014 watch careers",
       "roleFocus": "human-factors",
       "location": "San Diego",
       "url": "https://www.illumina.com/company/careers.html",
@@ -150,7 +405,7 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "San Diego genomics instruments. Search for Human Factors Engineer / UX on instrument software. Good for mixed methods + regulated device HF.",
       "salaryRange": "",
-      "whyFit": "San Diego medtech HF on complex instruments — aligns with MSI research + systems thinking."
+      "whyFit": "San Diego medtech HF on complex instruments \u2014 aligns with MSI research + systems thinking."
     },
     {
       "id": "scan-20260803-c-whoop-hfresearcher",
@@ -165,13 +420,13 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "Wearable health + healthcare product research. Senior HF Researcher postings rotate; watch Lever board for Researcher / Design Research / early-career variants.",
       "salaryRange": "",
-      "whyFit": "Wearable health research adjacent to medtech — strong HF + consumer health UX practice."
+      "whyFit": "Wearable health research adjacent to medtech \u2014 strong HF + consumer health UX practice."
     },
     {
       "id": "scan-20260803-c-edwards-hf",
       "companyId": "c-edwards",
       "companyName": "Edwards Lifesciences",
-      "title": "Human Factors Engineer — watch careers",
+      "title": "Human Factors Engineer \u2014 watch careers",
       "roleFocus": "human-factors",
       "location": "Los Angeles",
       "url": "https://www.edwards.com/careers",
@@ -180,13 +435,13 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "Irvine structural heart. Historically strong HF hiring. Set alert for Human Factors / Usability Engineer entry or associate levels.",
       "salaryRange": "",
-      "whyFit": "Top SoCal cardiovascular device HF culture — ideal LA/OC medtech target."
+      "whyFit": "Top SoCal cardiovascular device HF culture \u2014 ideal LA/OC medtech target."
     },
     {
       "id": "scan-20260803-c-heartflow-productux",
       "companyId": "c-heartflow",
       "companyName": "HeartFlow",
-      "title": "Product / UX Research — cardiac AI (watch)",
+      "title": "Product / UX Research \u2014 cardiac AI (watch)",
       "roleFocus": "product",
       "location": "SF Bay",
       "url": "https://www.heartflow.com/careers",
@@ -195,13 +450,13 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "Mountain View cardiac imaging AI. Watch for Associate PM, UX Researcher, Design Researcher supporting clinician workflows.",
       "salaryRange": "",
-      "whyFit": "Clinician-facing medtech AI — blends UXR and product thinking for MSI grads."
+      "whyFit": "Clinician-facing medtech AI \u2014 blends UXR and product thinking for MSI grads."
     },
     {
       "id": "scan-20260803-c-hinge-uxr",
       "companyId": "c-hinge",
       "companyName": "Hinge Health",
-      "title": "UX Researcher — digital MSK care (watch)",
+      "title": "UX Researcher \u2014 digital MSK care (watch)",
       "roleFocus": "ux-research",
       "location": "SF Bay",
       "url": "https://www.hingehealth.com/careers",
@@ -210,7 +465,7 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "SF digital health. Frequently hires UXR. Filter for Associate / UX Researcher; good bridge from academic research to health product UXR.",
       "salaryRange": "",
-      "whyFit": "Digital health UXR with clinical care context — strong early-career research home."
+      "whyFit": "Digital health UXR with clinical care context \u2014 strong early-career research home."
     },
     {
       "id": "scan-20260803-c-healthesystems-intern",
@@ -223,15 +478,15 @@
       "status": "new",
       "postedAt": "2026-07-20T00:00:00.000Z",
       "foundAt": "2026-08-03T21:58:00.000Z",
-      "notes": "Remote WFH user research intern supporting qualitative/quantitative work. Confirm current listing on careers page; good while finishing master’s.",
+      "notes": "Remote WFH user research intern supporting qualitative/quantitative work. Confirm current listing on careers page; good while finishing master\u2019s.",
       "salaryRange": "Intern",
-      "whyFit": "Healthcare tech UXR internship — builds portfolio toward 2027 full-time search."
+      "whyFit": "Healthcare tech UXR internship \u2014 builds portfolio toward 2027 full-time search."
     },
     {
       "id": "scan-20260803-c-abridge-product",
       "companyId": "c-abridge",
       "companyName": "Abridge",
-      "title": "Product / Research roles — clinical AI (watch)",
+      "title": "Product / Research roles \u2014 clinical AI (watch)",
       "roleFocus": "product",
       "location": "Remote CA",
       "url": "https://www.abridge.com/careers",
@@ -240,13 +495,13 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "Fast-growing clinical documentation AI. Watch for APM, product research, or design research supporting clinicians.",
       "salaryRange": "",
-      "whyFit": "Clinical AI product work adjacent to UXR — open option beyond pure med devices."
+      "whyFit": "Clinical AI product work adjacent to UXR \u2014 open option beyond pure med devices."
     },
     {
       "id": "scan-20260803-c-ambience-ux",
       "companyId": "c-ambience",
       "companyName": "Ambience Healthcare",
-      "title": "UX / Product Research — ambient clinical AI (watch)",
+      "title": "UX / Product Research \u2014 ambient clinical AI (watch)",
       "roleFocus": "ux-research",
       "location": "SF Bay",
       "url": "https://www.ambiencehealthcare.com/careers",
@@ -255,13 +510,13 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "SF. Clinician workflow research. Set alerts for UX Researcher / Product Designer / Research roles.",
       "salaryRange": "",
-      "whyFit": "Bay Area clinical AI UXR — high learning density for healthcare research craft."
+      "whyFit": "Bay Area clinical AI UXR \u2014 high learning density for healthcare research craft."
     },
     {
       "id": "scan-20260803-c-jj-medtech-hf",
       "companyId": "c-jj-medtech",
       "companyName": "Johnson & Johnson MedTech",
-      "title": "Human Factors / Usability — MedTech (watch)",
+      "title": "Human Factors / Usability \u2014 MedTech (watch)",
       "roleFocus": "human-factors",
       "location": "Los Angeles",
       "url": "https://www.careers.jnj.com",
@@ -270,7 +525,7 @@
       "foundAt": "2026-08-03T21:58:00.000Z",
       "notes": "Search J&J careers for Human Factors, Usability Engineer, Irvine / CA MedTech. Large pipeline of early-career HF roles across business units.",
       "salaryRange": "",
-      "whyFit": "Large SoCal MedTech HF employer — multiple doors for MSI + HF interest."
+      "whyFit": "Large SoCal MedTech HF employer \u2014 multiple doors for MSI + HF interest."
     }
   ]
 }
