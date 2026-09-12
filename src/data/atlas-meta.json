@@ -1,5 +1,5 @@
 {
-  "lastAtlasUpdateAt": "2026-08-03T22:16:00.000Z",
-  "updateNotes": "Atlas refresh enabled for weekly Saturday scans — companies.ts stays the source of truth; automation adds/fixes companies each week.",
-  "companiesChecked": 0
+  "lastAtlasUpdateAt": "2026-09-12T09:30:00.000Z",
+  "updateNotes": "Weekly scan Sept 12: added Amgen, ClariMed, ZEISS, Rula, Tesla; fixed Insulet/iRhythm/Edwards \u2192 Workday; WHOOP \u2192 Ashby; enriched Stryker/Intuitive-adjacent notes. Checked ~35 boards (SmartRecruiters Intuitive, Workday Edwards/Insulet/iRhythm/ResMed/Illumina/ZEISS/Amgen, Ashby Hinge/Abridge/Ambience/Rula/WHOOP, Greenhouse Cala/CeriBell/Freenome/AppliedVR/Omada/ElementScience, ClariMed Rippling, Stryker careers).",
+  "companiesChecked": 35
 }
