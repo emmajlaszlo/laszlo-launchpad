@@ -1,5 +1,5 @@
 {
-  "lastAtlasUpdateAt": "2026-08-03T22:16:00.000Z",
-  "updateNotes": "Atlas refresh enabled for weekly Saturday scans — companies.ts stays the source of truth; automation adds/fixes companies each week.",
-  "companiesChecked": 0
+  "lastAtlasUpdateAt": "2026-10-31T09:45:00.000Z",
+  "updateNotes": "Weekly scan Oct 31: added ServiceNow; refreshed notes for Insulet, Abbott, Stryker, WHOOP, Amgen (Sr HFE closed), ClariMed, Rula, Ōura, Google, Prenuvo, Neptune, Blue Shield. Checked ~40 boards (SmartRecruiters Intuitive + ServiceNow, Workday Edwards/Insulet/iRhythm/ResMed/Abbott/Amgen/Stryker/QuidelOrtho/ZEISS/Medtronic/J&J, Ashby Hinge/Abridge/Ambience/Rula/WHOOP, Greenhouse Cala/CeriBell/Freenome/AppliedVR/Omada/ElementScience/Oura/Neptune, ClariMed TrinetHire + careers, Google careers, Danaher/Cepheid Phenom).",
+  "companiesChecked": 40
 }
