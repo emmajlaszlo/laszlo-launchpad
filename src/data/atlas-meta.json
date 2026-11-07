@@ -1,5 +1,5 @@
 {
-  "lastAtlasUpdateAt": "2026-08-03T22:16:00.000Z",
-  "updateNotes": "Atlas refresh enabled for weekly Saturday scans — companies.ts stays the source of truth; automation adds/fixes companies each week.",
-  "companiesChecked": 0
+  "lastAtlasUpdateAt": "2026-11-07T09:30:00.000Z",
+  "updateNotes": "Weekly scan Nov 7: refreshed notes for ClariMed/UserWise, Intuitive, Stryker, Insulet, Ōura, Rula, ServiceNow. No net-new atlas companies. Clarimed careers remains /aboutus/careers (root /careers 404). Checked ~35 boards via SmartRecruiters/Ashby/Greenhouse + selective Workday detail pages (CXS rate-limited).",
+  "companiesChecked": 35
 }
