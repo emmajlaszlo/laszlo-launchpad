@@ -1,5 +1,5 @@
 {
-  "lastAtlasUpdateAt": "2026-08-03T22:16:00.000Z",
-  "updateNotes": "Atlas refresh enabled for weekly Saturday scans — companies.ts stays the source of truth; automation adds/fixes companies each week.",
-  "companiesChecked": 0
+  "lastAtlasUpdateAt": "2026-11-14T09:45:00.000Z",
+  "updateNotes": "Weekly scan Nov 14: added Adobe, Coinbase, Insomniac Games, Precision Neuroscience, Johns Hopkins APL. Updated ClariMed (SJ interns closed/filled), ServiceNow, \u014cura, Intuitive, Insulet, ResMed, Stryker notes. Checked ~40 boards via SmartRecruiters/Ashby/Greenhouse + ResMed/Genentech Workday CXS (most other WD tenants 303/unavailable).",
+  "companiesChecked": 40
 }
