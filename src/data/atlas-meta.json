@@ -1,5 +1,5 @@
 {
-  "lastAtlasUpdateAt": "2026-08-03T22:16:00.000Z",
-  "updateNotes": "Atlas refresh enabled for weekly Saturday scans — companies.ts stays the source of truth; automation adds/fixes companies each week.",
-  "companiesChecked": 0
+  "lastAtlasUpdateAt": "2026-11-21T09:30:00.000Z",
+  "updateNotes": "Weekly scan Nov 21: added Sony Electronics (SD UX/HF intern watch). Updated Dexcom (2027 grad intern open), Intuitive (LXR intern), Stryker (HF intern closed), ServiceNow, Insomniac, Coinbase, Google, ClariMed, Precision, Philips, Medtronic, Tandem, ResMed notes. Checked ~35 boards via SmartRecruiters/Ashby/Greenhouse; most Workday tenants 403/unavailable.",
+  "companiesChecked": 35
 }
