@@ -1,5 +1,5 @@
 {
-  "lastAtlasUpdateAt": "2026-08-03T22:16:00.000Z",
-  "updateNotes": "Atlas refresh enabled for weekly Saturday scans — companies.ts stays the source of truth; automation adds/fixes companies each week.",
-  "companiesChecked": 0
+  "lastAtlasUpdateAt": "2026-11-28T09:30:00.000Z",
+  "updateNotes": "Weekly scan Nov 28: added Alcon (priority-1 HF/UX intern), UL Solutions/Emergo (HF Associate watch), Meta (PhD quant UXR intern). Updated Dexcom, ResMed, Intuitive, ServiceNow, WHOOP, ClariMed notes. Checked ~40 boards via SmartRecruiters/Ashby/Greenhouse/Workday CXS (Alcon/ResMed/Edwards healthy).",
+  "companiesChecked": 40
 }
